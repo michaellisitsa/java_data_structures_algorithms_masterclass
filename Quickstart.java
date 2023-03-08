@@ -172,6 +172,13 @@ class QuickStart {
      */
     public int[] arrayManipulation(int n, int[][] queries) {
         int[] matrix = new int[n];
+        for (int[] query : queries) {
+            for (int i = 0; i < n; i++) {
+                if (i + 1 >= query[0] && i + 1 <= query[1]) {
+                    matrix[i] += query[2];
+                }
+            }
+        }
         return matrix;
     }
 
