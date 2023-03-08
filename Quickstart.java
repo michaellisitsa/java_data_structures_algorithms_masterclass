@@ -7,7 +7,7 @@ class QuickStart {
         while (!isValidInput) {
             System.out.println("Enter which algorithm you want to run? ");
             String[] functions = new String[] { "fibonacci", "sumOfDigits", "power", "productOfArray", "someRecursive",
-                    "isPalindrome" };
+                    "isPalindrome", "arrayManipulation" };
             System.out.printf("- %s\nChoose type:", String.join("\n- ", functions));
             String name = System.console().readLine();
             for (String s : functions) {
@@ -67,6 +67,12 @@ class QuickStart {
                     System.out.println("Enter string to check for palindrome:");
                     String palindrome = System.console().readLine();
                     System.out.printf("Ans: %s", recursion.isPalindrome(palindrome));
+                    break;
+                case "arrayManipulation":
+                    int arrayManipulationN = 10;
+                    int[][] arr = { { 1, 5, 3 }, { 4, 8, 7 }, { 6, 9, 1 } };
+                    int[] returned = recursion.arrayManipulation(arrayManipulationN, arr);
+                    System.out.println(Arrays.toString(returned));
                     break;
                 default:
                     System.out.printf("Command %s not found", name);
@@ -155,4 +161,18 @@ class QuickStart {
             return fibonacci(n - 1) + fibonacci(n - 2);
         }
     }
+
+    /*
+     * Complete the 'arrayManipulation' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts following parameters:
+     * 1. INTEGER n
+     * 2. 2D_INTEGER_ARRAY queries
+     */
+    public int[] arrayManipulation(int n, int[][] queries) {
+        int[] matrix = new int[n];
+        return matrix;
+    }
+
 }
