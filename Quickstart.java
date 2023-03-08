@@ -177,14 +177,20 @@ class QuickStart {
     public long arrayManipulation(int n, List<ArrayList<Integer>> queries) {
         int[] matrix = new int[n];
         for (List<Integer> query : queries) {
-            for (Integer i = 0; i < n; i++) {
-                if (i + 1 >= query.get(0) && i + 1 <= query.get(1)) {
-                    matrix[i] += query.get(2);
-                }
+            matrix[query.get(0) - 1] += query.get(2);
+            if (query.get(1) < matrix.length) {
+                matrix[query.get(1)] -= query.get(2);
             }
         }
-        Arrays.sort(matrix);
-        return matrix[matrix.length - 1];
+        int max = 0;
+        int current = 0;
+        for (int value : matrix) {
+            current += value;
+            if (current > max) {
+                max = current;
+            }
+        }
+        return max;
     }
 
 }
