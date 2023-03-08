@@ -175,16 +175,16 @@ class QuickStart {
      * 2. 2D_INTEGER_ARRAY queries
      */
     public long arrayManipulation(int n, List<ArrayList<Integer>> queries) {
-        int[] matrix = new int[n];
+        long[] matrix = new long[n];
         for (List<Integer> query : queries) {
             matrix[query.get(0) - 1] += query.get(2);
             if (query.get(1) < matrix.length) {
                 matrix[query.get(1)] -= query.get(2);
             }
         }
-        int max = 0;
-        int current = 0;
-        for (int value : matrix) {
+        long max = 0;
+        long current = 0;
+        for (long value : matrix) {
             current += value;
             if (current > max) {
                 max = current;
