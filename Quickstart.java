@@ -70,9 +70,13 @@ class QuickStart {
                     break;
                 case "arrayManipulation":
                     int arrayManipulationN = 10;
-                    int[][] arr = { { 1, 5, 3 }, { 4, 8, 7 }, { 6, 9, 1 } };
-                    int[] returned = recursion.arrayManipulation(arrayManipulationN, arr);
-                    System.out.println(Arrays.toString(returned));
+                    List<ArrayList<Integer>> arr = new ArrayList<ArrayList<Integer>>();
+                    arr.add(new ArrayList<Integer>(Arrays.asList(1, 5, 3)));
+                    arr.add(new ArrayList<Integer>(Arrays.asList(4, 8, 7)));
+                    arr.add(new ArrayList<Integer>(Arrays.asList(6, 9, 1)));
+                    long returned = recursion.arrayManipulation(arrayManipulationN, arr);
+                    System.out.println("max");
+                    System.out.println(returned);
                     break;
                 default:
                     System.out.printf("Command %s not found", name);
@@ -170,16 +174,17 @@ class QuickStart {
      * 1. INTEGER n
      * 2. 2D_INTEGER_ARRAY queries
      */
-    public int[] arrayManipulation(int n, int[][] queries) {
+    public long arrayManipulation(int n, List<ArrayList<Integer>> queries) {
         int[] matrix = new int[n];
-        for (int[] query : queries) {
-            for (int i = 0; i < n; i++) {
-                if (i + 1 >= query[0] && i + 1 <= query[1]) {
-                    matrix[i] += query[2];
+        for (List<Integer> query : queries) {
+            for (Integer i = 0; i < n; i++) {
+                if (i + 1 >= query.get(0) && i + 1 <= query.get(1)) {
+                    matrix[i] += query.get(2);
                 }
             }
         }
-        return matrix;
+        Arrays.sort(matrix);
+        return matrix[matrix.length - 1];
     }
 
 }
