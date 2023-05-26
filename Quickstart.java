@@ -7,7 +7,7 @@ class QuickStart {
         while (!isValidInput) {
             System.out.println("Enter which algorithm you want to run? ");
             String[] functions = new String[] { "fibonacci", "sumOfDigits", "power", "productOfArray", "someRecursive",
-                    "isPalindrome", "arrayManipulation" };
+                    "isPalindrome", "arrayManipulation", "basicTree" };
             System.out.printf("- %s\nChoose type:", String.join("\n- ", functions));
             String name = System.console().readLine();
             for (String s : functions) {
@@ -77,6 +77,18 @@ class QuickStart {
                     long returned = recursion.arrayManipulation(arrayManipulationN, arr);
                     System.out.println("max");
                     System.out.println(returned);
+                    break;
+                case "basicTree":
+                    Tree tree = new Tree();
+                    TreeNode root = new TreeNode("root");
+                    System.out.println("Enter count of children of root");
+                    Integer countChildrenOfRoot = Integer.parseInt(System.console().readLine());
+                    for (int i = 0; i < countChildrenOfRoot; i++) {
+                        root.addChild(new TreeNode(String.format("Name: %s", i)));
+                    }
+                    System.out.println("What level?");
+                    Integer level = Integer.parseInt(System.console().readLine());
+                    System.out.printf("Root tree %s", root.print(level));
                     break;
                 default:
                     System.out.printf("Command %s not found", name);
