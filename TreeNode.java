@@ -9,8 +9,9 @@ public class TreeNode {
         this.children = new ArrayList<>();
     }
 
-    public void addChild(TreeNode node) {
+    public TreeNode addChild(TreeNode node) {
         this.children.add(node);
+        return node;
     }
 
     public String print(int level) {

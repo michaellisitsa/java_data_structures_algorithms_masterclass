@@ -80,15 +80,18 @@ class QuickStart {
                     break;
                 case "basicTree":
                     Tree tree = new Tree();
-                    TreeNode root = new TreeNode("root");
+                    TreeNode root = new TreeNode("Root");
                     System.out.println("Enter count of children of root");
                     Integer countChildrenOfRoot = Integer.parseInt(System.console().readLine());
-                    for (int i = 0; i < countChildrenOfRoot; i++) {
-                        root.addChild(new TreeNode(String.format("Name: %s", i)));
+                    for (int child = 0; child < countChildrenOfRoot; child++) {
+                        TreeNode newChild = root.addChild(new TreeNode(String.format("Child %s", child + 1)));
+                        System.out.println(String.format("Number of grandchildren of child %s", child + 1));
+                        Integer countGrandChildrenOfNode = Integer.parseInt(System.console().readLine());
+                        for (int grandchild = 0; grandchild < countGrandChildrenOfNode; grandchild++) {
+                            newChild.addChild(new TreeNode(String.format("Grandchild %s", grandchild + )));
+                        }
                     }
-                    System.out.println("What level?");
-                    Integer level = Integer.parseInt(System.console().readLine());
-                    System.out.printf("Root tree %s", root.print(level));
+                    System.out.printf("%s", root.print(0));
                     break;
                 default:
                     System.out.printf("Command %s not found", name);
