@@ -88,7 +88,7 @@ class QuickStart {
                         System.out.println(String.format("Number of grandchildren of child %s", child + 1));
                         Integer countGrandChildrenOfNode = Integer.parseInt(System.console().readLine());
                         for (int grandchild = 0; grandchild < countGrandChildrenOfNode; grandchild++) {
-                            newChild.addChild(new TreeNode(String.format("Grandchild %s", grandchild + )));
+                            newChild.addChild(new TreeNode(String.format("Grandchild %s", grandchild + 1)));
                         }
                     }
                     System.out.printf("%s", root.print(0));
