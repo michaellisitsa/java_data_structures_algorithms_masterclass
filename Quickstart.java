@@ -1,4 +1,9 @@
 import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.List;
+
 class QuickStart {
     public static void main(String[] args) {
 
@@ -7,7 +12,7 @@ class QuickStart {
         while (!isValidInput) {
             System.out.println("Enter which algorithm you want to run? ");
             String[] functions = new String[] { "fibonacci", "sumOfDigits", "power", "productOfArray", "someRecursive",
-                    "isPalindrome", "arrayManipulation", "basicTree" };
+                    "isPalindrome", "arrayManipulation", "basicTree", "binaryTree", "trie" };
             System.out.printf("- %s\nChoose type:", String.join("\n- ", functions));
             String name = System.console().readLine();
             for (String s : functions) {
@@ -92,6 +97,28 @@ class QuickStart {
                         }
                     }
                     System.out.printf("%s", root.print(0));
+                    break;
+                case "binaryTree":
+                    BinaryTreeLL binaryTree = new BinaryTreeLL();
+                    BinaryNode binaryTreeRoot = new BinaryNode();
+                    binaryTree.root = binaryTreeRoot;
+                    binaryTreeRoot.value = "root";
+                    BinaryNode left = new BinaryNode();
+                    BinaryNode right = new BinaryNode();
+                    binaryTreeRoot.left = left;
+                    binaryTreeRoot.right = right;
+                    left.value = "left";
+                    right.value = "right";
+                    BinaryNode leftleft = new BinaryNode();
+                    BinaryNode leftright = new BinaryNode();
+                    left.left = leftleft;
+                    left.right = leftright;
+                    leftleft.value = "leftleft";
+                    leftright.value = "leftright";
+                    binaryTree.inOrder(binaryTreeRoot);
+                    break;
+                case "trie":
+                    System.out.printf("Command %s not implemented", name);
                     break;
                 default:
                     System.out.printf("Command %s not found", name);
