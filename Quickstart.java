@@ -12,7 +12,7 @@ class QuickStart {
         while (!isValidInput) {
             System.out.println("Enter which algorithm you want to run? ");
             String[] functions = new String[] { "fibonacci", "sumOfDigits", "power", "productOfArray", "someRecursive",
-                    "isPalindrome", "arrayManipulation", "basicTree", "binaryTree", "trie" };
+                    "isPalindrome", "arrayManipulation", "basicTree", "binaryTree", "trie", "directChaining" };
             System.out.printf("- %s\nChoose type:", String.join("\n- ", functions));
             String name = System.console().readLine();
             for (String s : functions) {
@@ -119,6 +119,15 @@ class QuickStart {
                     break;
                 case "trie":
                     System.out.printf("Command %s not implemented", name);
+                    break;
+                case "directChaining":
+                    DirectChaining hash = new DirectChaining(24);
+                    hash.insertHashTable("ABC");
+                    hash.insertHashTable("CBA");
+                    hash.insertHashTable("Mic");
+                    // hash.displayHashTable();
+                    hash.searchHashTable("AB");
+                    // System.out.printf("Hash", hash);
                     break;
                 default:
                     System.out.printf("Command %s not found", name);
