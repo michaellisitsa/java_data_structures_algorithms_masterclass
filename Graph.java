@@ -52,12 +52,22 @@ public class Graph {
         System.out.printf("Visited node:\n");
         while (!queue.isEmpty()) {
             GraphNode p = queue.pop();
-            if (!p.isVisited) {
-                p.isVisited = true;
+            if (p.visitedType != 0 && p.visitedType != 1) {
+                p.visitedType = 0; // 1, 0 if no decision
+                if (p.type.equals("*")) {
+                    System.out.println("Won");
+                    return "Impressed";
+                }
                 System.out.println(p.name);
                 // read adjacent nodes;
                 ArrayList<GraphNode> neighbours = this.getNeighbours(p);
                 for (GraphNode neighbour : neighbours) {
+                    // filter out all "X" neighbours
+                    if (neighbour.length >= 2) {
+                        p.visitedType = 1;
+                    } else if (neighbour.length == 1) {
+                        p.visitedType = 0;
+                    }
                     queue.add(neighbour);
                 }
             }
