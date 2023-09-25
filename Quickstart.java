@@ -131,26 +131,50 @@ class QuickStart {
                     break;
                 case "graph":
                     /* Graph Adjacency Matrix */
-                    ArrayList<GraphNode> nodeList = new ArrayList<GraphNode>();
-                    nodeList.add(new GraphNode("A", 0));
-                    nodeList.add(new GraphNode("B", 1));
-                    nodeList.add(new GraphNode("C", 2));
-                    nodeList.add(new GraphNode("D", 3));
-                    nodeList.add(new GraphNode("E", 4));
+                    System.out.println("Adjacency Matrix [M] or List [L]");
+                    String type = System.console().readLine();
+                    System.out.println(type);
 
-                    // A -- B
-                    // | \   \
-                    // |  \   E
-                    // |   \ /
-                    // C -- D
-                    Graph g = new Graph(nodeList);
-                    g.addUndirectedEdge(0, 1);
-                    g.addUndirectedEdge(0, 2);
-                    g.addUndirectedEdge(0, 3);
-                    g.addUndirectedEdge(1, 4);
-                    g.addUndirectedEdge(2, 3);
-                    g.addUndirectedEdge(3, 4);
-                    System.out.println(g.toString());
+                    if (type.equals("M")) {
+                        ArrayList<GraphNode> nodeList = new ArrayList<GraphNode>();
+                        nodeList.add(new GraphNode("A", 0));
+                        nodeList.add(new GraphNode("B", 1));
+                        nodeList.add(new GraphNode("C", 2));
+                        nodeList.add(new GraphNode("D", 3));
+                        nodeList.add(new GraphNode("E", 4));
+
+                        /*
+                        A -- B
+                        | \   \
+                        |  \   E
+                        |   \ /
+                        C -- D
+                        */
+                        Graph g = new Graph(nodeList);
+                        g.addUndirectedEdge(0, 1);
+                        g.addUndirectedEdge(0, 2);
+                        g.addUndirectedEdge(0, 3);
+                        g.addUndirectedEdge(1, 4);
+                        g.addUndirectedEdge(2, 3);
+                        g.addUndirectedEdge(3, 4);
+                        System.out.println(g.toString());
+                    } else if (type.equals("L")) {
+                        ArrayList<GraphNodeAdjacencyList> nodeList = new ArrayList<GraphNodeAdjacencyList>();
+                        nodeList.add(new GraphNodeAdjacencyList("A", 0));
+                        nodeList.add(new GraphNodeAdjacencyList("B", 1));
+                        nodeList.add(new GraphNodeAdjacencyList("C", 2));
+                        nodeList.add(new GraphNodeAdjacencyList("D", 3));
+                        nodeList.add(new GraphNodeAdjacencyList("E", 4));
+
+                        GraphAdjacencyList g = new GraphAdjacencyList(nodeList);
+                        g.addUndirectedEdge(0, 1);
+                        g.addUndirectedEdge(0, 2);
+                        g.addUndirectedEdge(0, 3);
+                        g.addUndirectedEdge(1, 4);
+                        g.addUndirectedEdge(2, 3);
+                        g.addUndirectedEdge(3, 4);
+                        System.out.println(g.toString());
+                    }
                     break;
                 default:
                     System.out.printf("Command %s not found", name);
